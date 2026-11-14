@@ -68,6 +68,11 @@ class PostgresClaimRepository:
             select(ClaimRow).where(ClaimRow.tenant_id == tenant_id).options(selectinload(ClaimRow.lines)).order_by(ClaimRow.claim_id))
         return [_to_domain(row) for row in self._session.scalars(statement).all()]
         
-            
-
-    
+    def list_for_patient(self, tenant_id: str, patient_ref: str) -> list[Claim]:
+        statement = (
+            select(ClaimRow)
+            .where(ClaimRow.tenant_id == tenant_id, ClaimRow.patient_ref == patient_ref)
+            .options(selectinload(ClaimRow.lines))
+            .order_by(ClaimRow.service_date, ClaimRow.claim_id)
+        )
+        return [_to_domain(row) for row in self._session.scalars(statement).all()]

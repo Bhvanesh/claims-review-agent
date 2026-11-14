@@ -13,3 +13,11 @@ class InMemoryClaimRepository:
         return self._claims.get((tenant_id, claim_id))
     def list_for_tenant(self, tenant_id:str) -> list[Claim]:
         return[c for (t, _), c in self._claims.items() if t == tenant_id]
+    def list_for_patient(self, tenant_id: str, patient_ref:str) -> list[Claim]:
+        matches = [
+            c
+            for (t, _), c in self._claims.items()
+            if t == tenant_id and c.patient_ref == patient_ref
+        ]
+        return sorted(matches, key=lambda c: (c.service_date, c.claim_id))
+

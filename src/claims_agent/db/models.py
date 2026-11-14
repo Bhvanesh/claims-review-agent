@@ -1,7 +1,7 @@
 from datetime import date
 from decimal import Decimal
 
-from sqlalchemy import Date, ForeignKeyConstraint, Integer, Numeric, String
+from sqlalchemy import Date, ForeignKeyConstraint, Index, Integer, Numeric, String
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 class Base(DeclarativeBase):
@@ -9,7 +9,7 @@ class Base(DeclarativeBase):
 
 class ClaimRow(Base):
     __tablename__ = "claims"
-
+    __table_args__ = (Index("ix_claims_tenant_patient", "tenant_id", "patient_ref"),)
     tenant_id: Mapped[str] = mapped_column(String(64), primary_key=True)
     claim_id: Mapped[str] = mapped_column(String(64), primary_key=True)
     patient_ref: Mapped[str] = mapped_column(String(64))

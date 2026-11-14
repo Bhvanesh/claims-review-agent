@@ -24,13 +24,13 @@ def _default_env(monkeypatch):
 
 @pytest.fixture
 def make_claim():
-    def _make(claim_id: str = "c-1", tenant_id: str = "t-1") -> Claim:
+    def _make(claim_id: str = "c-1", tenant_id: str = "t-1", patient_ref: str = "p-1", service_date: date = date(2009, 3, 1)) -> Claim:
         return Claim(
             claim_id = claim_id,
             tenant_id = tenant_id,
-            patient_ref = "p-1",
+            patient_ref = patient_ref,
             provider_ref = "pr_1",
-            service_date = date(2009, 3, 1),
+            service_date = service_date,
             lines=[
                 ClaimLine(
                     procedure_code="99213",
