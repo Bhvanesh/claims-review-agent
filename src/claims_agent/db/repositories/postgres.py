@@ -1,5 +1,6 @@
-from claims_agent.db.models import ClaimLineRow, ClaimRow
+from claims_agent.db.models import ClaimLineRow, ClaimRow, CoveragePeriodRow
 from claims_agent.domain.claim import Claim, ClaimLine
+from claims_agent.domain.coverage import CoveragePeriod
 from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 from sqlalchemy.exc import IntegrityError
@@ -76,3 +77,40 @@ class PostgresClaimRepository:
             .order_by(ClaimRow.service_date, ClaimRow.claim_id)
         )
         return [_to_domain(row) for row in self._session.scalars(statement).all()]
+
+def _period_to_domain(row: CoveragePeriodRow) -> CoveragePeriod:
+    return CoveragePeriod(
+        tenant_id=row.tenant_id,
+        patient_ref=row.patient_ref,
+        start_date=row.start_date,
+        end_date=row.end_date,
+    )
+
+class PostgresCoverageRepository:
+    def __init__(self, session: Session) -> None:
+        self._session = session
+
+    def add(self, period: CoveragePeriod) -> None:
+        self._session.add(
+            CoveragePeriodRow(
+                tenant_id=period.tenant_id,
+                patient_ref=period.patient_ref,
+                start_date=period.start_date,
+                end_date=period.end_date,
+            )
+        )
+        self._session.flush()
+        
+    def list_for_patient(self, tenant_id: str, patient_ref: str) -> list[CoveragePeriod]:
+        statement = (
+            select(CoveragePeriodRow)
+            .where(
+                CoveragePeriodRow.tenant_id == tenant_id,
+                CoveragePeriodRow.patient_ref == patient_ref,
+            )
+            .order_by(
+                CoveragePeriodRow.start_date,
+                CoveragePeriodRow.end_date.asc().nulls_last(),
+            )
+        )
+        return [_period_to_domain(row) for row in self._session.scalars(statement).all()]

@@ -1,15 +1,19 @@
 from datetime import date
 from decimal import Decimal
 from collections.abc import Iterator
+
 import pytest
 from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy import Engine, text
 from claims_agent.domain.claim import Claim, ClaimLine
 from sqlalchemy.orm import Session
+
 from claims_agent.db.models import Base
 from claims_agent.db.saftey import require_test_database
 from claims_agent.db.session import make_engine
+from claims_agent.domain.claim import Claim, ClaimLine 
+from claims_agent.domain.coverage import CoveragePeriod
 
 
 class IntegrationDbSettings(BaseSettings):
@@ -24,20 +28,39 @@ def _default_env(monkeypatch):
 
 @pytest.fixture
 def make_claim():
-    def _make(claim_id: str = "c-1", tenant_id: str = "t-1", patient_ref: str = "p-1", service_date: date = date(2009, 3, 1)) -> Claim:
+    def _make(
+        claim_id: str = "c-1",
+        tenant_id: str = "t-1",
+        patient_ref: str = "p-1",
+        provider_ref: str = "pr-1",
+        service_date: date = date(2009, 3, 1),
+        procedure_code: str = "99213",
+    ) -> Claim:
         return Claim(
-            claim_id = claim_id,
-            tenant_id = tenant_id,
-            patient_ref = patient_ref,
-            provider_ref = "pr_1",
-            service_date = service_date,
+            claim_id=claim_id,
+            tenant_id=tenant_id,
+            patient_ref=patient_ref,
+            provider_ref=provider_ref,
+            service_date=service_date,
             lines=[
                 ClaimLine(
-                    procedure_code="99213",
+                    procedure_code=procedure_code,
                     diagnosis_code="E119",
                     charge_amount=Decimal("100.00"),
-            )],
+                )
+            ],
         )
+
+    return _make
+
+@pytest.fixture
+def make_period():
+    def _make(
+            tenant_id: str = "t-1",
+            patient_ref: str = "p-1",
+            start: date = date(2009, 1, 1),
+            end: date | None = date(2009,12,31)) -> CoveragePeriod: 
+        return CoveragePeriod(tenant_id=tenant_id, patient_ref=patient_ref, start_date=start, end_date=end)
     return _make
 
 def _truncate(engine: Engine) -> None:

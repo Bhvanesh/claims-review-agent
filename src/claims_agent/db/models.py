@@ -1,7 +1,7 @@
 from datetime import date
 from decimal import Decimal
 
-from sqlalchemy import Date, ForeignKeyConstraint, Index, Integer, Numeric, String
+from sqlalchemy import CheckConstraint, Date, ForeignKeyConstraint, Index, Integer, Numeric, String
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 class Base(DeclarativeBase):
@@ -39,3 +39,20 @@ class ClaimLineRow(Base):
     charge_amount: Mapped[Decimal] = mapped_column(Numeric(12, 2))
 
     claim: Mapped[ClaimRow] = relationship(back_populates="lines")
+
+class CoveragePeriodRow(Base):
+    __tablename__ = "coverage_periods"
+    __table_args__ = (
+        CheckConstraint(
+            "end_date IS NULL OR end_date >= start_date",
+            name="ck_coverage_end_not_before_start",
+        ),
+        Index("ix_coverage_tenant_patient", "tenant_id", "patient_ref"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    tenant_id: Mapped[str] = mapped_column(String(64))
+    patient_ref: Mapped[str] = mapped_column(String(64))
+    start_date: Mapped[date] = mapped_column(Date)
+    end_date: Mapped[date | None] = mapped_column(Date, nullable=True)
+    
