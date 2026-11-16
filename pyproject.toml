@@ -2,7 +2,7 @@
 name = "claims-agent"
 version = "0.1.0"
 requires-python = ">=3.13"
-dependencies = ["pydantic","pydantic-settings", "sqlalchemy", "psycopg[binary]", "alembic"]
+dependencies = ["pydantic","pydantic-settings", "sqlalchemy", "psycopg[binary]", "alembic", "mcp==2.3.0"]
 [project.optional-dependencies]
 dev = ["pytest", "ruff", "mypy"]
 
