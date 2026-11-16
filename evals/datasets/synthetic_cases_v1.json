@@ -1,0 +1,3642 @@
+{
+  "format_version": 1,
+  "seed": 7,
+  "per_scenario": 25,
+  "cases": [
+    {
+      "case_id": "case-0001",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0001",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0001",
+        "provider_ref": "pr-011",
+        "service_date": "2009-03-19",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "446.59"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "J069",
+            "charge_amount": "371.19"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0001",
+          "start_date": "2008-11-29",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "case_id": "case-0002",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0002",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0002",
+        "provider_ref": "pr-002",
+        "service_date": "2009-02-14",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "I10",
+            "charge_amount": "294.05"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "M545",
+            "charge_amount": "79.44"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0002-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0002",
+          "provider_ref": "pr-002",
+          "service_date": "2009-02-14",
+          "lines": [
+            {
+              "procedure_code": "99213",
+              "diagnosis_code": "E119",
+              "charge_amount": "58.73"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0002",
+          "start_date": "2008-04-21",
+          "end_date": "2009-03-18"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0003",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0003",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0003",
+        "provider_ref": "pr-019",
+        "service_date": "2009-10-27",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "E119",
+            "charge_amount": "52.49"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "J069",
+            "charge_amount": "384.81"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0003",
+          "start_date": "2009-03-30",
+          "end_date": "2009-07-11"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0004",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0004",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0004",
+        "provider_ref": "pr-019",
+        "service_date": "2009-06-07",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "E119",
+            "charge_amount": "466.95"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "I10",
+            "charge_amount": "401.15"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "264.05"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0005",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0005",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0005",
+        "provider_ref": "pr-019",
+        "service_date": "2009-01-31",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "M545",
+            "charge_amount": "154.97"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "M545",
+            "charge_amount": "225.87"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "I10",
+            "charge_amount": "256.96"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0005",
+          "start_date": "2008-09-28",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "case_id": "case-0006",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0006",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0006",
+        "provider_ref": "pr-003",
+        "service_date": "2009-10-22",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "J069",
+            "charge_amount": "364.19"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "J069",
+            "charge_amount": "498.04"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0006-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0006",
+          "provider_ref": "pr-003",
+          "service_date": "2009-10-22",
+          "lines": [
+            {
+              "procedure_code": "80053",
+              "diagnosis_code": "E119",
+              "charge_amount": "419.08"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0006",
+          "start_date": "2009-02-01",
+          "end_date": "2010-05-25"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0007",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0007",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0007",
+        "provider_ref": "pr-006",
+        "service_date": "2009-06-25",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "E119",
+            "charge_amount": "340.44"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0007",
+          "start_date": "2009-12-14",
+          "end_date": "2010-02-21"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0008",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0008",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0008",
+        "provider_ref": "pr-011",
+        "service_date": "2009-12-22",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "M545",
+            "charge_amount": "409.52"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "J069",
+            "charge_amount": "65.06"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0009",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0009",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0009",
+        "provider_ref": "pr-016",
+        "service_date": "2009-12-23",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "J069",
+            "charge_amount": "62.59"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "M545",
+            "charge_amount": "444.1"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "J069",
+            "charge_amount": "206.51"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0009-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0009",
+          "provider_ref": "pr-016",
+          "service_date": "2009-11-30",
+          "lines": [
+            {
+              "procedure_code": "99213",
+              "diagnosis_code": "E119",
+              "charge_amount": "130.13"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0009",
+          "start_date": "2009-12-23",
+          "end_date": "2010-01-23"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0010",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0010",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0010",
+        "provider_ref": "pr-007",
+        "service_date": "2009-05-28",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "M545",
+            "charge_amount": "182.27"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0010-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0010",
+          "provider_ref": "pr-007",
+          "service_date": "2009-05-28",
+          "lines": [
+            {
+              "procedure_code": "80053",
+              "diagnosis_code": "E119",
+              "charge_amount": "345.39"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0010",
+          "start_date": "2008-10-10",
+          "end_date": "2009-12-20"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0011",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0011",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0011",
+        "provider_ref": "pr-018",
+        "service_date": "2009-05-23",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "J069",
+            "charge_amount": "302.14"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0011",
+          "start_date": "2009-11-20",
+          "end_date": "2010-07-20"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0012",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0012",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0012",
+        "provider_ref": "pr-013",
+        "service_date": "2009-04-29",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "I10",
+            "charge_amount": "74.38"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0013",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0013",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0013",
+        "provider_ref": "pr-008",
+        "service_date": "2009-12-04",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "I10",
+            "charge_amount": "27.9"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0013-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0013",
+          "provider_ref": "pr-008-b",
+          "service_date": "2009-12-04",
+          "lines": [
+            {
+              "procedure_code": "80053",
+              "diagnosis_code": "M545",
+              "charge_amount": "115.47"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0013",
+          "start_date": "2009-05-28",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "case_id": "case-0014",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0014",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0014",
+        "provider_ref": "pr-020",
+        "service_date": "2009-10-17",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "E119",
+            "charge_amount": "102.24"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "M545",
+            "charge_amount": "319.26"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0014-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0014",
+          "provider_ref": "pr-020",
+          "service_date": "2009-10-17",
+          "lines": [
+            {
+              "procedure_code": "71046",
+              "diagnosis_code": "M545",
+              "charge_amount": "280.87"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0014",
+          "start_date": "2009-10-17",
+          "end_date": "2009-12-10"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0015",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0015",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0015",
+        "provider_ref": "pr-016",
+        "service_date": "2009-11-21",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "E119",
+            "charge_amount": "60.79"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "I10",
+            "charge_amount": "156.81"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0015",
+          "start_date": "2009-04-02",
+          "end_date": "2009-10-23"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0016",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0016",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0016",
+        "provider_ref": "pr-004",
+        "service_date": "2009-01-01",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "E119",
+            "charge_amount": "119.13"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "E119",
+            "charge_amount": "258.29"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "M545",
+            "charge_amount": "66.08"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0017",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0017",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0017",
+        "provider_ref": "pr-005",
+        "service_date": "2009-11-21",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "J069",
+            "charge_amount": "247.66"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "330.73"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0017",
+          "start_date": "2009-11-21",
+          "end_date": "2010-07-25"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0018",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0018",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0018",
+        "provider_ref": "pr-016",
+        "service_date": "2009-06-09",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "J069",
+            "charge_amount": "114.44"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0018-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0018",
+          "provider_ref": "pr-016",
+          "service_date": "2009-06-09",
+          "lines": [
+            {
+              "procedure_code": "99213",
+              "diagnosis_code": "M545",
+              "charge_amount": "193.51"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0018",
+          "start_date": "2009-03-18",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "case_id": "case-0019",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0019",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0019",
+        "provider_ref": "pr-017",
+        "service_date": "2009-01-12",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "I10",
+            "charge_amount": "366.19"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0019",
+          "start_date": "2009-07-08",
+          "end_date": "2009-08-20"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0020",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0020",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0020",
+        "provider_ref": "pr-003",
+        "service_date": "2009-12-23",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "I10",
+            "charge_amount": "359.73"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "J069",
+            "charge_amount": "253.1"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0021",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0021",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0021",
+        "provider_ref": "pr-008",
+        "service_date": "2009-11-10",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "I10",
+            "charge_amount": "176.88"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0021-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0021",
+          "provider_ref": "pr-008",
+          "service_date": "2009-10-18",
+          "lines": [
+            {
+              "procedure_code": "80053",
+              "diagnosis_code": "E119",
+              "charge_amount": "499.07"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0021",
+          "start_date": "2009-06-19",
+          "end_date": "2010-07-10"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0022",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0022",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0022",
+        "provider_ref": "pr-009",
+        "service_date": "2009-04-10",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "M545",
+            "charge_amount": "416.58"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "J069",
+            "charge_amount": "493.9"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "E119",
+            "charge_amount": "72.78"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0022-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0022",
+          "provider_ref": "pr-009",
+          "service_date": "2009-04-10",
+          "lines": [
+            {
+              "procedure_code": "85025",
+              "diagnosis_code": "M545",
+              "charge_amount": "168.66"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0022",
+          "start_date": "2008-10-19",
+          "end_date": "2009-07-24"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0023",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0023",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0023",
+        "provider_ref": "pr-016",
+        "service_date": "2009-11-16",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "J069",
+            "charge_amount": "21.25"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "441.48"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "M545",
+            "charge_amount": "274.63"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0023",
+          "start_date": "2010-01-01",
+          "end_date": "2010-09-10"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0024",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0024",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0024",
+        "provider_ref": "pr-003",
+        "service_date": "2009-07-22",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "I10",
+            "charge_amount": "283.05"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "E119",
+            "charge_amount": "131.41"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0025",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0025",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0025",
+        "provider_ref": "pr-005",
+        "service_date": "2009-10-30",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "M545",
+            "charge_amount": "449.82"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "I10",
+            "charge_amount": "450.74"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0025",
+          "start_date": "2009-10-19",
+          "end_date": "2009-11-07"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0026",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0026",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0026",
+        "provider_ref": "pr-004",
+        "service_date": "2009-09-27",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "I10",
+            "charge_amount": "111.25"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "J069",
+            "charge_amount": "158.3"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "I10",
+            "charge_amount": "159.44"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0026-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0026",
+          "provider_ref": "pr-004",
+          "service_date": "2009-09-27",
+          "lines": [
+            {
+              "procedure_code": "80053",
+              "diagnosis_code": "J069",
+              "charge_amount": "404.32"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0026",
+          "start_date": "2009-09-27",
+          "end_date": "2010-07-03"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0027",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0027",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0027",
+        "provider_ref": "pr-014",
+        "service_date": "2009-03-09",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "M545",
+            "charge_amount": "251.85"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0027",
+          "start_date": "2008-07-27",
+          "end_date": "2008-10-31"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0028",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0028",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0028",
+        "provider_ref": "pr-017",
+        "service_date": "2009-09-19",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "E119",
+            "charge_amount": "308.44"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0029",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0029",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0029",
+        "provider_ref": "pr-005",
+        "service_date": "2009-03-30",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "E119",
+            "charge_amount": "330.3"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0029",
+          "start_date": "2009-03-30",
+          "end_date": "2009-12-21"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0030",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0030",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0030",
+        "provider_ref": "pr-017",
+        "service_date": "2009-10-12",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "E119",
+            "charge_amount": "89.53"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "J069",
+            "charge_amount": "182.85"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0030-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0030",
+          "provider_ref": "pr-017",
+          "service_date": "2009-10-12",
+          "lines": [
+            {
+              "procedure_code": "71046",
+              "diagnosis_code": "E119",
+              "charge_amount": "47.65"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0030",
+          "start_date": "2009-02-22",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "case_id": "case-0031",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0031",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0031",
+        "provider_ref": "pr-018",
+        "service_date": "2009-01-15",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "I10",
+            "charge_amount": "310.48"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0031",
+          "start_date": "2009-07-12",
+          "end_date": "2009-12-30"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0032",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0032",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0032",
+        "provider_ref": "pr-017",
+        "service_date": "2009-10-01",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "J069",
+            "charge_amount": "352.76"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "M545",
+            "charge_amount": "386.68"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0033",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0033",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0033",
+        "provider_ref": "pr-005",
+        "service_date": "2009-08-02",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "J069",
+            "charge_amount": "277.13"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0033-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0033",
+          "provider_ref": "pr-005-b",
+          "service_date": "2009-08-02",
+          "lines": [
+            {
+              "procedure_code": "80053",
+              "diagnosis_code": "E119",
+              "charge_amount": "300.71"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0033",
+          "start_date": "2009-02-27",
+          "end_date": "2009-10-04"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0034",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0034",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0034",
+        "provider_ref": "pr-005",
+        "service_date": "2009-11-26",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "J069",
+            "charge_amount": "259.98"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "I10",
+            "charge_amount": "109.95"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "M545",
+            "charge_amount": "81.68"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0034-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0034",
+          "provider_ref": "pr-005",
+          "service_date": "2009-11-26",
+          "lines": [
+            {
+              "procedure_code": "99214",
+              "diagnosis_code": "I10",
+              "charge_amount": "126.68"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0034",
+          "start_date": "2009-04-19",
+          "end_date": "2010-08-17"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0035",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0035",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0035",
+        "provider_ref": "pr-013",
+        "service_date": "2009-06-23",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "J069",
+            "charge_amount": "148.28"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "E119",
+            "charge_amount": "80.42"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0035",
+          "start_date": "2009-09-18",
+          "end_date": "2010-06-09"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0036",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0036",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0036",
+        "provider_ref": "pr-001",
+        "service_date": "2009-07-16",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "J069",
+            "charge_amount": "359.1"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "355.71"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0037",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0037",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0037",
+        "provider_ref": "pr-008",
+        "service_date": "2009-02-23",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "E119",
+            "charge_amount": "194.04"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0037",
+          "start_date": "2008-10-07",
+          "end_date": "2009-05-01"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0038",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0038",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0038",
+        "provider_ref": "pr-014",
+        "service_date": "2009-12-13",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "M545",
+            "charge_amount": "286.04"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "E119",
+            "charge_amount": "479.02"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0038-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0038",
+          "provider_ref": "pr-014",
+          "service_date": "2009-12-13",
+          "lines": [
+            {
+              "procedure_code": "99214",
+              "diagnosis_code": "E119",
+              "charge_amount": "202.88"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0038",
+          "start_date": "2009-09-10",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "case_id": "case-0039",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0039",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0039",
+        "provider_ref": "pr-014",
+        "service_date": "2009-02-07",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "J069",
+            "charge_amount": "31.03"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "I10",
+            "charge_amount": "74.88"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0039",
+          "start_date": "2008-08-08",
+          "end_date": "2009-01-20"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0040",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0040",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0040",
+        "provider_ref": "pr-015",
+        "service_date": "2009-01-06",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "J069",
+            "charge_amount": "382.45"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "E119",
+            "charge_amount": "427.43"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0041",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0041",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0041",
+        "provider_ref": "pr-017",
+        "service_date": "2009-12-30",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "J069",
+            "charge_amount": "91.73"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0041-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0041",
+          "provider_ref": "pr-017-b",
+          "service_date": "2009-12-30",
+          "lines": [
+            {
+              "procedure_code": "99214",
+              "diagnosis_code": "J069",
+              "charge_amount": "224.46"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0041",
+          "start_date": "2009-09-15",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "case_id": "case-0042",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0042",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0042",
+        "provider_ref": "pr-010",
+        "service_date": "2009-08-17",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "J069",
+            "charge_amount": "460.5"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "J069",
+            "charge_amount": "247.41"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "44.21"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0042-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0042",
+          "provider_ref": "pr-010",
+          "service_date": "2009-08-17",
+          "lines": [
+            {
+              "procedure_code": "99214",
+              "diagnosis_code": "I10",
+              "charge_amount": "351.38"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0042",
+          "start_date": "2008-12-16",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "case_id": "case-0043",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0043",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0043",
+        "provider_ref": "pr-008",
+        "service_date": "2009-08-17",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "M545",
+            "charge_amount": "451.43"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0043",
+          "start_date": "2010-01-04",
+          "end_date": "2010-08-23"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0044",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0044",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0044",
+        "provider_ref": "pr-007",
+        "service_date": "2009-04-28",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "M545",
+            "charge_amount": "150.17"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "I10",
+            "charge_amount": "247.77"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0045",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0045",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0045",
+        "provider_ref": "pr-001",
+        "service_date": "2009-02-06",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "I10",
+            "charge_amount": "187.5"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "M545",
+            "charge_amount": "56.3"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "I10",
+            "charge_amount": "351.57"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0045",
+          "start_date": "2008-06-15",
+          "end_date": "2009-05-12"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0046",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0046",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0046",
+        "provider_ref": "pr-006",
+        "service_date": "2009-05-18",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "J069",
+            "charge_amount": "22.37"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "J069",
+            "charge_amount": "235.56"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0046-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0046",
+          "provider_ref": "pr-006",
+          "service_date": "2009-05-18",
+          "lines": [
+            {
+              "procedure_code": "85025",
+              "diagnosis_code": "E119",
+              "charge_amount": "180.2"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0046",
+          "start_date": "2009-05-18",
+          "end_date": "2009-09-07"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0047",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0047",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0047",
+        "provider_ref": "pr-012",
+        "service_date": "2009-04-04",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "E119",
+            "charge_amount": "239.76"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0047",
+          "start_date": "2008-06-14",
+          "end_date": "2008-12-03"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0048",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0048",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0048",
+        "provider_ref": "pr-008",
+        "service_date": "2009-09-16",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "E119",
+            "charge_amount": "79.54"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0049",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0049",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0049",
+        "provider_ref": "pr-005",
+        "service_date": "2009-07-24",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "E119",
+            "charge_amount": "47.3"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "I10",
+            "charge_amount": "216.37"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "I10",
+            "charge_amount": "75.36"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0049",
+          "start_date": "2009-01-05",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "case_id": "case-0050",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0050",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0050",
+        "provider_ref": "pr-011",
+        "service_date": "2009-09-11",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "I10",
+            "charge_amount": "206.23"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0050-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0050",
+          "provider_ref": "pr-011",
+          "service_date": "2009-09-11",
+          "lines": [
+            {
+              "procedure_code": "71046",
+              "diagnosis_code": "M545",
+              "charge_amount": "48.69"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0050",
+          "start_date": "2008-12-26",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "case_id": "case-0051",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0051",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0051",
+        "provider_ref": "pr-005",
+        "service_date": "2009-09-26",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "I10",
+            "charge_amount": "392.55"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "75.76"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "E119",
+            "charge_amount": "107.22"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0051",
+          "start_date": "2008-10-03",
+          "end_date": "2009-06-21"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0052",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0052",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0052",
+        "provider_ref": "pr-001",
+        "service_date": "2009-11-17",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "M545",
+            "charge_amount": "466.08"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "M545",
+            "charge_amount": "192.87"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "E119",
+            "charge_amount": "65.94"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0053",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0053",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0053",
+        "provider_ref": "pr-017",
+        "service_date": "2009-02-03",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "E119",
+            "charge_amount": "330.54"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "I10",
+            "charge_amount": "194.03"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "M545",
+            "charge_amount": "171.21"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0053",
+          "start_date": "2008-06-02",
+          "end_date": "2009-07-01"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0054",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0054",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0054",
+        "provider_ref": "pr-002",
+        "service_date": "2009-11-12",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "E119",
+            "charge_amount": "441.24"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "J069",
+            "charge_amount": "413.02"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "I10",
+            "charge_amount": "186.42"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0054-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0054",
+          "provider_ref": "pr-002",
+          "service_date": "2009-11-12",
+          "lines": [
+            {
+              "procedure_code": "99214",
+              "diagnosis_code": "M545",
+              "charge_amount": "28.17"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0054",
+          "start_date": "2009-03-08",
+          "end_date": "2010-03-30"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0055",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0055",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0055",
+        "provider_ref": "pr-004",
+        "service_date": "2009-12-21",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "J069",
+            "charge_amount": "462.83"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0055",
+          "start_date": "2010-06-21",
+          "end_date": "2011-04-11"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0056",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0056",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0056",
+        "provider_ref": "pr-015",
+        "service_date": "2009-08-27",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "I10",
+            "charge_amount": "97.66"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "M545",
+            "charge_amount": "224.25"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0057",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0057",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0057",
+        "provider_ref": "pr-001",
+        "service_date": "2009-05-29",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "M545",
+            "charge_amount": "70.11"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "I10",
+            "charge_amount": "196.06"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0057",
+          "start_date": "2009-04-20",
+          "end_date": "2010-03-23"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0058",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0058",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0058",
+        "provider_ref": "pr-003",
+        "service_date": "2009-03-14",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "J069",
+            "charge_amount": "363.45"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "J069",
+            "charge_amount": "106.9"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "I10",
+            "charge_amount": "93.84"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0058-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0058",
+          "provider_ref": "pr-003",
+          "service_date": "2009-03-14",
+          "lines": [
+            {
+              "procedure_code": "85025",
+              "diagnosis_code": "M545",
+              "charge_amount": "346.29"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0058",
+          "start_date": "2009-03-14",
+          "end_date": "2009-03-27"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0059",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0059",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0059",
+        "provider_ref": "pr-006",
+        "service_date": "2009-01-02",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "M545",
+            "charge_amount": "466.68"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "M545",
+            "charge_amount": "217.88"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0059",
+          "start_date": "2009-04-01",
+          "end_date": "2009-11-09"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0060",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0060",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0060",
+        "provider_ref": "pr-004",
+        "service_date": "2009-06-19",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "M545",
+            "charge_amount": "232.69"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0061",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0061",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0061",
+        "provider_ref": "pr-004",
+        "service_date": "2009-04-11",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "J069",
+            "charge_amount": "27.68"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "M545",
+            "charge_amount": "263.93"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "E119",
+            "charge_amount": "275.69"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0061-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0061",
+          "provider_ref": "pr-004",
+          "service_date": "2009-02-21",
+          "lines": [
+            {
+              "procedure_code": "85025",
+              "diagnosis_code": "E119",
+              "charge_amount": "200.32"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0061",
+          "start_date": "2009-04-11",
+          "end_date": "2009-06-03"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0062",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0062",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0062",
+        "provider_ref": "pr-002",
+        "service_date": "2009-12-05",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "I10",
+            "charge_amount": "436.12"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "J069",
+            "charge_amount": "194.14"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0062-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0062",
+          "provider_ref": "pr-002",
+          "service_date": "2009-12-05",
+          "lines": [
+            {
+              "procedure_code": "99214",
+              "diagnosis_code": "J069",
+              "charge_amount": "144.41"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0062",
+          "start_date": "2009-12-05",
+          "end_date": "2009-12-20"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0063",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0063",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0063",
+        "provider_ref": "pr-013",
+        "service_date": "2009-10-11",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "153.32"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "M545",
+            "charge_amount": "499.95"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "J069",
+            "charge_amount": "422.99"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0063",
+          "start_date": "2009-04-14",
+          "end_date": "2009-06-08"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0064",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0064",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0064",
+        "provider_ref": "pr-006",
+        "service_date": "2009-08-30",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "J069",
+            "charge_amount": "245.22"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "M545",
+            "charge_amount": "187.6"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0065",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0065",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0065",
+        "provider_ref": "pr-008",
+        "service_date": "2009-06-04",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "E119",
+            "charge_amount": "385.24"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "E119",
+            "charge_amount": "129.66"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0065-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0065",
+          "provider_ref": "pr-008",
+          "service_date": "2009-04-29",
+          "lines": [
+            {
+              "procedure_code": "80053",
+              "diagnosis_code": "M545",
+              "charge_amount": "164.19"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0065",
+          "start_date": "2009-06-04",
+          "end_date": "2010-01-21"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0066",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0066",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0066",
+        "provider_ref": "pr-014",
+        "service_date": "2009-03-13",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "E119",
+            "charge_amount": "146.09"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "E119",
+            "charge_amount": "134.48"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "J069",
+            "charge_amount": "229.24"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0066-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0066",
+          "provider_ref": "pr-014",
+          "service_date": "2009-03-13",
+          "lines": [
+            {
+              "procedure_code": "99214",
+              "diagnosis_code": "I10",
+              "charge_amount": "189.31"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0066",
+          "start_date": "2008-08-13",
+          "end_date": "2009-09-26"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0067",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0067",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0067",
+        "provider_ref": "pr-014",
+        "service_date": "2009-09-26",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "J069",
+            "charge_amount": "266.98"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0067",
+          "start_date": "2010-04-07",
+          "end_date": "2010-06-07"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0068",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0068",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0068",
+        "provider_ref": "pr-009",
+        "service_date": "2009-10-22",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "I10",
+            "charge_amount": "102.49"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "I10",
+            "charge_amount": "80.68"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0069",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0069",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0069",
+        "provider_ref": "pr-013",
+        "service_date": "2009-07-24",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "J069",
+            "charge_amount": "312.19"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "E119",
+            "charge_amount": "34.29"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "M545",
+            "charge_amount": "298.65"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0069-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0069",
+          "provider_ref": "pr-013",
+          "service_date": "2009-06-01",
+          "lines": [
+            {
+              "procedure_code": "80053",
+              "diagnosis_code": "M545",
+              "charge_amount": "365.93"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0069",
+          "start_date": "2009-07-24",
+          "end_date": "2009-11-29"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0070",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0070",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0070",
+        "provider_ref": "pr-004",
+        "service_date": "2009-04-25",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "E119",
+            "charge_amount": "119.65"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0070-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0070",
+          "provider_ref": "pr-004",
+          "service_date": "2009-04-25",
+          "lines": [
+            {
+              "procedure_code": "71046",
+              "diagnosis_code": "M545",
+              "charge_amount": "492.99"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0070",
+          "start_date": "2008-07-16",
+          "end_date": "2009-05-16"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0071",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0071",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0071",
+        "provider_ref": "pr-001",
+        "service_date": "2009-03-06",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "J069",
+            "charge_amount": "393.15"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0071",
+          "start_date": "2009-04-08",
+          "end_date": "2009-09-13"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0072",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0072",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0072",
+        "provider_ref": "pr-004",
+        "service_date": "2009-02-20",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "I10",
+            "charge_amount": "216.83"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0073",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0073",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0073",
+        "provider_ref": "pr-013",
+        "service_date": "2009-05-14",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "413.91"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0073",
+          "start_date": "2009-05-14",
+          "end_date": "2009-10-04"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0074",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0074",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0074",
+        "provider_ref": "pr-011",
+        "service_date": "2009-11-27",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "I10",
+            "charge_amount": "331.49"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0074-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0074",
+          "provider_ref": "pr-011",
+          "service_date": "2009-11-27",
+          "lines": [
+            {
+              "procedure_code": "71046",
+              "diagnosis_code": "I10",
+              "charge_amount": "378.48"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0074",
+          "start_date": "2009-04-30",
+          "end_date": "2010-05-04"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0075",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0075",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0075",
+        "provider_ref": "pr-002",
+        "service_date": "2009-01-12",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "E119",
+            "charge_amount": "346.57"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0075",
+          "start_date": "2009-03-19",
+          "end_date": "2009-08-12"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0076",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0076",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0076",
+        "provider_ref": "pr-012",
+        "service_date": "2009-04-27",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "M545",
+            "charge_amount": "42.34"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "I10",
+            "charge_amount": "257.44"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0077",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0077",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0077",
+        "provider_ref": "pr-001",
+        "service_date": "2009-05-30",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "I10",
+            "charge_amount": "350.87"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "J069",
+            "charge_amount": "344.85"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "M545",
+            "charge_amount": "147.09"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0077-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0077",
+          "provider_ref": "pr-001",
+          "service_date": "2009-05-23",
+          "lines": [
+            {
+              "procedure_code": "99213",
+              "diagnosis_code": "M545",
+              "charge_amount": "428.68"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0077",
+          "start_date": "2009-02-23",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "case_id": "case-0078",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0078",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0078",
+        "provider_ref": "pr-008",
+        "service_date": "2009-09-06",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "I10",
+            "charge_amount": "456"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "I10",
+            "charge_amount": "277.85"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0078-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0078",
+          "provider_ref": "pr-008",
+          "service_date": "2009-09-06",
+          "lines": [
+            {
+              "procedure_code": "99213",
+              "diagnosis_code": "I10",
+              "charge_amount": "35.48"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0078",
+          "start_date": "2009-09-06",
+          "end_date": "2009-10-03"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0079",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0079",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0079",
+        "provider_ref": "pr-002",
+        "service_date": "2009-04-05",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "E119",
+            "charge_amount": "314.67"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "J069",
+            "charge_amount": "72.01"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0079",
+          "start_date": "2009-05-24",
+          "end_date": "2009-09-25"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0080",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0080",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0080",
+        "provider_ref": "pr-002",
+        "service_date": "2009-06-09",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "J069",
+            "charge_amount": "495.38"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "I10",
+            "charge_amount": "237.38"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "91.4"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0081",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0081",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0081",
+        "provider_ref": "pr-009",
+        "service_date": "2009-02-11",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "I10",
+            "charge_amount": "295.37"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "J069",
+            "charge_amount": "269.12"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0081",
+          "start_date": "2009-02-11",
+          "end_date": "2009-03-28"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0082",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0082",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0082",
+        "provider_ref": "pr-002",
+        "service_date": "2009-12-28",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "M545",
+            "charge_amount": "148.26"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "J069",
+            "charge_amount": "146.5"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0082-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0082",
+          "provider_ref": "pr-002",
+          "service_date": "2009-12-28",
+          "lines": [
+            {
+              "procedure_code": "85025",
+              "diagnosis_code": "E119",
+              "charge_amount": "330.99"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0082",
+          "start_date": "2009-05-31",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "case_id": "case-0083",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0083",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0083",
+        "provider_ref": "pr-008",
+        "service_date": "2009-11-17",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "E119",
+            "charge_amount": "46.64"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "324.12"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0083",
+          "start_date": "2009-05-06",
+          "end_date": "2009-09-12"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0084",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0084",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0084",
+        "provider_ref": "pr-020",
+        "service_date": "2009-06-23",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "E119",
+            "charge_amount": "198.46"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "J069",
+            "charge_amount": "191.81"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0085",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0085",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0085",
+        "provider_ref": "pr-010",
+        "service_date": "2009-01-02",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "410.31"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "M545",
+            "charge_amount": "173.26"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "M545",
+            "charge_amount": "488.95"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0085",
+          "start_date": "2009-01-02",
+          "end_date": "2009-09-12"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0086",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0086",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0086",
+        "provider_ref": "pr-005",
+        "service_date": "2009-09-12",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "I10",
+            "charge_amount": "25.7"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0086-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0086",
+          "provider_ref": "pr-005",
+          "service_date": "2009-09-12",
+          "lines": [
+            {
+              "procedure_code": "85025",
+              "diagnosis_code": "I10",
+              "charge_amount": "417.97"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0086",
+          "start_date": "2009-09-12",
+          "end_date": "2010-02-23"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0087",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0087",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0087",
+        "provider_ref": "pr-015",
+        "service_date": "2009-07-05",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "I10",
+            "charge_amount": "71.78"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "I10",
+            "charge_amount": "276.69"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "287.22"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0087",
+          "start_date": "2008-08-19",
+          "end_date": "2009-03-03"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0088",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0088",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0088",
+        "provider_ref": "pr-014",
+        "service_date": "2009-02-23",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "E119",
+            "charge_amount": "193.59"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0089",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0089",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0089",
+        "provider_ref": "pr-007",
+        "service_date": "2009-02-19",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "I10",
+            "charge_amount": "346.68"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "M545",
+            "charge_amount": "173.48"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0089-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0089",
+          "provider_ref": "pr-007-b",
+          "service_date": "2009-02-19",
+          "lines": [
+            {
+              "procedure_code": "80053",
+              "diagnosis_code": "E119",
+              "charge_amount": "372.95"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0089",
+          "start_date": "2009-02-19",
+          "end_date": "2009-07-20"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0090",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0090",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0090",
+        "provider_ref": "pr-009",
+        "service_date": "2009-10-18",
+        "lines": [
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "J069",
+            "charge_amount": "264.43"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "I10",
+            "charge_amount": "150.54"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0090-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0090",
+          "provider_ref": "pr-009",
+          "service_date": "2009-10-18",
+          "lines": [
+            {
+              "procedure_code": "85025",
+              "diagnosis_code": "I10",
+              "charge_amount": "141.72"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0090",
+          "start_date": "2009-07-31",
+          "end_date": "2010-03-12"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0091",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0091",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0091",
+        "provider_ref": "pr-019",
+        "service_date": "2009-04-07",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "J069",
+            "charge_amount": "62.47"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "I10",
+            "charge_amount": "181.18"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0091",
+          "start_date": "2009-09-21",
+          "end_date": "2009-12-11"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0092",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0092",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0092",
+        "provider_ref": "pr-002",
+        "service_date": "2009-02-22",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "M545",
+            "charge_amount": "331.14"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0093",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0093",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0093",
+        "provider_ref": "pr-012",
+        "service_date": "2009-01-21",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "172.62"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "I10",
+            "charge_amount": "144.23"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0093",
+          "start_date": "2009-01-21",
+          "end_date": "2009-10-11"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0094",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0094",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0094",
+        "provider_ref": "pr-006",
+        "service_date": "2009-08-18",
+        "lines": [
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "190.35"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "J069",
+            "charge_amount": "437.76"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "J069",
+            "charge_amount": "162.63"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0094-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0094",
+          "provider_ref": "pr-006",
+          "service_date": "2009-08-18",
+          "lines": [
+            {
+              "procedure_code": "99213",
+              "diagnosis_code": "I10",
+              "charge_amount": "242.83"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0094",
+          "start_date": "2009-05-05",
+          "end_date": "2009-12-27"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0095",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0095",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0095",
+        "provider_ref": "pr-002",
+        "service_date": "2009-11-03",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "E119",
+            "charge_amount": "447.06"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "J069",
+            "charge_amount": "234.46"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "J069",
+            "charge_amount": "141.33"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0095",
+          "start_date": "2009-06-02",
+          "end_date": "2009-10-14"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0096",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0096",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0096",
+        "provider_ref": "pr-016",
+        "service_date": "2009-10-08",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "E119",
+            "charge_amount": "61.46"
+          },
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "I10",
+            "charge_amount": "279.06"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    },
+    {
+      "case_id": "case-0097",
+      "scenario": "covered_no_duplicate",
+      "expected_decision": "approve",
+      "claim": {
+        "claim_id": "clm-0097",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0097",
+        "provider_ref": "pr-018",
+        "service_date": "2009-02-16",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "J069",
+            "charge_amount": "127.27"
+          },
+          {
+            "procedure_code": "85025",
+            "diagnosis_code": "J069",
+            "charge_amount": "288.55"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "J069",
+            "charge_amount": "293.83"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0097",
+          "start_date": "2009-02-16",
+          "end_date": "2009-09-17"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0098",
+      "scenario": "duplicate_claim",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0098",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0098",
+        "provider_ref": "pr-014",
+        "service_date": "2009-01-10",
+        "lines": [
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "M545",
+            "charge_amount": "442.36"
+          },
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "I10",
+            "charge_amount": "497.12"
+          }
+        ]
+      },
+      "history": [
+        {
+          "claim_id": "clm-0098-h1",
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0098",
+          "provider_ref": "pr-014",
+          "service_date": "2009-01-10",
+          "lines": [
+            {
+              "procedure_code": "99214",
+              "diagnosis_code": "M545",
+              "charge_amount": "23.85"
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0098",
+          "start_date": "2008-06-07",
+          "end_date": "2009-03-10"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0099",
+      "scenario": "not_covered_on_date",
+      "expected_decision": "deny",
+      "claim": {
+        "claim_id": "clm-0099",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0099",
+        "provider_ref": "pr-003",
+        "service_date": "2009-07-27",
+        "lines": [
+          {
+            "procedure_code": "80053",
+            "diagnosis_code": "I10",
+            "charge_amount": "259.02"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "E119",
+            "charge_amount": "105.18"
+          },
+          {
+            "procedure_code": "99214",
+            "diagnosis_code": "M545",
+            "charge_amount": "381.46"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": [
+        {
+          "tenant_id": "t-synth",
+          "patient_ref": "p-0099",
+          "start_date": "2008-11-27",
+          "end_date": "2009-07-04"
+        }
+      ]
+    },
+    {
+      "case_id": "case-0100",
+      "scenario": "no_coverage_record",
+      "expected_decision": "pend",
+      "claim": {
+        "claim_id": "clm-0100",
+        "tenant_id": "t-synth",
+        "patient_ref": "p-0100",
+        "provider_ref": "pr-005",
+        "service_date": "2009-06-28",
+        "lines": [
+          {
+            "procedure_code": "71046",
+            "diagnosis_code": "I10",
+            "charge_amount": "126.04"
+          },
+          {
+            "procedure_code": "99213",
+            "diagnosis_code": "M545",
+            "charge_amount": "63.97"
+          }
+        ]
+      },
+      "history": [],
+      "coverage": []
+    }
+  ]
+}

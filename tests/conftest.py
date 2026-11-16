@@ -64,9 +64,9 @@ def make_period():
     return _make
 
 def _truncate(engine: Engine) -> None:
+    names = ", ".join(table.name for table in Base.metadata.sorted_tables)
     with engine.begin() as conn:
-        conn.execute(text("TRUNCATE TABLE claim_lines, claims"))
-
+        conn.execute(text(f"TRUNCATE TABLE {names}"))
 
 @pytest.fixture(scope="session")
 def pg_engine() -> Iterator[Engine]:
