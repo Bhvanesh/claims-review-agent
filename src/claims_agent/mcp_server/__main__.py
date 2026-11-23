@@ -15,7 +15,7 @@ from claims_agent.mcp_server.service import ClaimTools
 
 def main() -> None:
     tenant_id = McpServerSettings().tenant_id
-    engine = make_engine(get_settings().database_url.get_secret_values())
+    engine = make_engine(get_settings().database_url.get_secret_value())
 
     @contextmanager
     def open_tools() -> Iterator[ClaimTools]:
