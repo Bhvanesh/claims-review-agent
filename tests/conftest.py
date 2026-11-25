@@ -35,20 +35,28 @@ def make_claim():
         provider_ref: str = "pr-1",
         service_date: date = date(2009, 3, 1),
         procedure_code: str = "99213",
+        place_of_service: str | None = None,
+        modifier: str | None = None,
+        charge_amount: Decimal = Decimal("100.00"),
+        lines: list[ClaimLine] | None = None,
     ) -> Claim:
+        if lines is None:
+            lines = [
+                ClaimLine(
+                    procedure_code = procedure_code,
+                    diagnosis_code ="E119",
+                    charge_amount = charge_amount,
+                    modifier = modifier,
+                )
+            ]
         return Claim(
             claim_id=claim_id,
             tenant_id=tenant_id,
             patient_ref=patient_ref,
             provider_ref=provider_ref,
             service_date=service_date,
-            lines=[
-                ClaimLine(
-                    procedure_code=procedure_code,
-                    diagnosis_code="E119",
-                    charge_amount=Decimal("100.00"),
-                )
-            ],
+            place_of_service=place_of_service,
+            lines=lines,
         )
 
     return _make
