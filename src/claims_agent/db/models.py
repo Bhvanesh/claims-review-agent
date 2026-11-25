@@ -15,6 +15,7 @@ class ClaimRow(Base):
     patient_ref: Mapped[str] = mapped_column(String(64))
     provider_ref: Mapped[str] = mapped_column(String(64))
     service_date: Mapped[date]= mapped_column(Date)
+    place_of_service: Mapped[str | None] = mapped_column(String(2), nullable=True)
 
     lines: Mapped[list["ClaimLineRow"]] = relationship(
         back_populates = "claim",
@@ -37,7 +38,8 @@ class ClaimLineRow(Base):
     procedure_code: Mapped[str] = mapped_column(String(10))
     diagnosis_code: Mapped[str] = mapped_column(String(10))
     charge_amount: Mapped[Decimal] = mapped_column(Numeric(12, 2))
-
+    modifier: Mapped[str | None] = mapped_column(String(2), nullable=True)
+    
     claim: Mapped[ClaimRow] = relationship(back_populates="lines")
 
 class CoveragePeriodRow(Base):

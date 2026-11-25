@@ -15,6 +15,8 @@ def _to_row(claim: Claim) -> ClaimRow:
         patient_ref=claim.patient_ref,
         provider_ref=claim.provider_ref,
         service_date=claim.service_date,
+        place_of_service=claim.place_of_service,
+
         lines=[
             ClaimLineRow(
                 tenant_id=claim.tenant_id,
@@ -23,6 +25,7 @@ def _to_row(claim: Claim) -> ClaimRow:
                 procedure_code=line.procedure_code,
                 diagnosis_code=line.diagnosis_code,
                 charge_amount=line.charge_amount,
+                modifier=line.modifier,
             )
             for number, line in enumerate(claim.lines, start=1)
         ],
@@ -36,11 +39,14 @@ def _to_domain(row: ClaimRow) -> Claim:
         patient_ref=row.patient_ref,
         provider_ref=row.provider_ref,
         service_date=row.service_date,
+        place_of_service=row.place_of_service,
+
         lines=[
             ClaimLine(
                 procedure_code=line.procedure_code,
                 diagnosis_code=line.diagnosis_code,
                 charge_amount=line.charge_amount,
+                modifier=line.modifier,
             )
             for line in row.lines
         ],

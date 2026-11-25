@@ -84,7 +84,11 @@ def pg_engine() -> Iterator[Engine]:
     secret = url.get_secret_value()
     require_test_database(secret)
     engine = make_engine(secret)
+
+    Base.metadata.drop_all(engine)
+
     Base.metadata.create_all(engine)
+    
     yield engine
     engine.dispose()
 

@@ -3,6 +3,8 @@ from datetime import date
 from claims_agent.db.repositories.in_memory import InMemoryClaimRepository
 from claims_agent.domain.errors import DuplicateClaimError
 from claims_agent.db.repositories.postgres import PostgresClaimRepository
+from decimal import Decimal
+from claims_agent.domain.claim import ClaimLine
 
 @pytest.fixture(params=["memory", "postgres"])
 def repo(request):
@@ -54,3 +56,27 @@ def test_list_for_patient_filters_and_orders(repo, make_claim):
 def test_list_for_patient_does_not_cross_tenants(repo, make_claim):
     repo.add(make_claim(claim_id="c-1", tenant_id="t-1", patient_ref="p-1"))
     assert repo.list_for_patient("t-2", "p-1") == []    
+
+def test_new_fields_survive_add_and_get(repo, make_claim):
+    claim = make_claim(
+        place_of_service="11",
+        lines=[
+            ClaimLine(
+                procedure_code="99213",
+                diagnosis_code="E119",
+                charge_amount=Decimal("100.00"),
+                modifier="LT",
+            ),
+            ClaimLine(
+                procedure_code="99213",
+                diagnosis_code="E119",
+                charge_amount=Decimal("100.00"),
+                modifier="RT",
+            ),
+        ],
+    )
+    repo.add(claim)
+    loaded = repo.get("t-1", "c-1")
+    assert loaded == claim
+    assert loaded.place_of_service  == "11"
+    assert [line.modifier for line in loaded.lines] == ["LT", "RT"]

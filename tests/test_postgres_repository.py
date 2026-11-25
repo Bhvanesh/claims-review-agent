@@ -40,3 +40,25 @@ def test_other_tenant_cannot_see_committed_claim(pg_engine, clean_tables, make_c
         assert repo.get("t-2", "c-1") is None
         assert repo.list_for_tenant("t-2") == []
         assert len(repo.list_for_tenant("t-1")) == 1
+
+
+def test_new_fields_survive_a_commit(pg_engine, clean_tables, make_claim):
+    claim = make_claim(
+        place_of_service="22",
+        lines=[
+            ClaimLine(
+                procedure_code="99213",
+                diagnosis_code="E119",
+                charge_amount=Decimal("100.00"),
+                modifier="50",
+            )
+        ],
+    )
+    with Session(pg_engine) as writer:
+        PostgresClaimRepository(writer).add(claim)
+        writer.commit()
+    with Session(pg_engine) as reader:
+        loaded = PostgresClaimRepository(reader).get("t-1", "c-1")
+    assert loaded == claim
+    assert loaded.place_of_service == "22"
+    assert loaded.lines[0].modifier == "50"
